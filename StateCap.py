@@ -16,15 +16,16 @@ import sys
 import pytest
 
 STATES_CAPITALS = {
-    'Alabama' : 'Montgomery',
-    'Alaska' : 'Juneau',
-    'Arizona' : 'Phoenix',
-    'Arkansas': 'Little Rock',
+
     'California' : 'Sacramento',
     'Colorado' : 'Denver',
     'Connecticut' : 'Hartford',
     'Delaware' : 'Dover',
     'Florida' : 'Tallahassee',
+    'Alabama' : 'Montgomery',
+    'Alaska' : 'Juneau',
+    'Arizona' : 'Phoenix',
+    'Arkansas': 'Little Rock',
     'Georgia' : 'Atlanta',
     'Hawaii' : 'Honolulu',
     'Idaho' : 'Boise',
@@ -70,25 +71,41 @@ STATES_CAPITALS = {
 
 
 def capital_of_Idaho():
-    # Your code here
-    pass
+    print(STATES_CAPITALS['Idaho'])
 
 def all_states():
-    # Your code here
-    pass
+    print(STATES_CAPITALS.keys())    
 
 def all_capitals():
-    # Your code here
-    pass
-
+    print(STATES_CAPITALS.values())
+    
+#4. Create a single string 'Alabama -> Montgomery, Alaska -> Juneau, ...'
 def states_capitals_string():
-    # Your code here
-    pass
+    all_states_capitals = []
+    for state in STATES_CAPITALS:
+        capital = STATES_CAPITALS[state]
+        all_states_capitals.append(state + " -> " + capital )
+    
+    sort_states = sorted(all_states_capitals)
+    print(", ".join(sort_states)) 
 
 
+def capitals_state_string():
+    all_states_capitals = []
+    for state in STATES_CAPITALS:
+        capital = STATES_CAPITALS[state]
+        all_states_capitals.append(capital + " -> " + state)
+    
+    sort_states = sorted(all_states_capitals)
+    print(", ".join(sort_states)) 
+    
 
 def get_state(capital):
-    pass
+    for state in STATES_CAPITALS:
+        if capital == STATES_CAPITALS[state]:
+            return(state)
+
+
 
 
 
@@ -111,7 +128,7 @@ def test_capital_to_state_unknown():
 
 
 def main():
-    return pytest.main(__file__)
+    return pytest.main([__file__])
 
 
 if __name__ == '__main__':
