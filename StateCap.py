@@ -101,10 +101,12 @@ def capitals_state_string():
     
 
 def get_state(capital):
-    for state in STATES_CAPITALS:
-        if capital == STATES_CAPITALS[state]:
-            return(state)
-
+    for key, value in STATES_CAPITALS.items():
+        if capital in STATES_CAPITALS.values():
+            if capital == value:
+                return key
+        else:
+            return STATES_CAPITALS[capital]
 
 
 
